@@ -1,3 +1,4 @@
+
 import os
 from pathlib import Path
 
@@ -13,7 +14,7 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d!8n=8bgj&qwuiv*4w8kvqi9u=ft3th2_y2#j(1(rm5)%3p##%'
+SECRET_KEY = os.getenv('SECRET')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 

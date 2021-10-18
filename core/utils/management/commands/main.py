@@ -7,8 +7,6 @@ from django.core.files.images import ImageFile
 # image_model.image_field('path', File().read())
 
 class Command(BaseCommand):
-    help = 'Closes the specified poll for voting'
-
     # def add_arguments(self, parser):
     #     parser.add_argument('poll_ids', nargs='+', type=int)
 
