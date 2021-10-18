@@ -13,3 +13,4 @@ logger/
 .log
 Pipfile
 .env
+static/staticfiles/

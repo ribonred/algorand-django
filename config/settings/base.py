@@ -5,7 +5,9 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DB_ENGINE = 'django.db.backends.postgresql_psycopg2'
 
+from dotenv import load_dotenv
 
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -20,6 +22,8 @@ SECRET_KEY = 'django-insecure-d!8n=8bgj&qwuiv*4w8kvqi9u=ft3th2_y2#j(1(rm5)%3p##%
 # Application definition
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -28,7 +32,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.services',
     'core.utils',
-    'core.user'
+    'core.user',
+    'core.assets',
+    'rest_framework',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +68,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 ASGI_APPLICATION = 'config.asgi.application'
+AUTH_USER_MODEL = "user.User"
 
 
 
@@ -107,3 +115,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+
+# DRF SPECTACULAR
+# https://drf-spectacular.readthedocs.io/en/latest/readme.html
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Ledger API',
+    'DESCRIPTION': 'No Decsription yet',
+    'VERSION': '0.0.1-alpha',
+}

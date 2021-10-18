@@ -12,8 +12,7 @@ ALLOWED_HOSTS = []
 
 STATIC_URL = '/static/'
 
-
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/staticfiles')
 DATABASES = {
     'default': {
         'ENGINE': DB_ENGINE,
@@ -23,6 +22,6 @@ DATABASES = {
         'HOST': os.getenv('DBHOST'),
         'PORT': 5432,
     },
-    
-
 }
+NODE="http://localhost:4001"
+ALGO_TOKEN="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
