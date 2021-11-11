@@ -55,11 +55,12 @@ class Account(BaseTimeStampModel):
         Checks the asset balance for the specific address and asset id.
         """
         account_info = self.algod_client.account_info(self.address)
+        # print(account_info)
         assets = account_info.get("assets")
         for asset in assets:
-            if asset['asset-id'] == 2:
+            if asset['asset-id'] == 44253981:
                 amount = asset.get("amount")
-                return self.balance_formatter(amount)
+                return self.balance_formatter(amount,asset_id=44253981)
         return 0
     
     def transfer(self,amount,receiver):
@@ -68,7 +69,7 @@ class Account(BaseTimeStampModel):
         specified address, for the specified amount.
         """
         params = self.algod_client.suggested_params()
-        txn = AssetTransferTxn(sender=self.address, sp=params, receiver=receiver, amt=amount, index=2)
+        txn = AssetTransferTxn(sender=self.address, sp=params, receiver=receiver, amt=amount, index=44253981)
         txinfo = self.sign_and_send(txn, self.passphrase)
         formatted_amount = self.balance_formatter(amount)
         print("Transferred {} from {} to {}".format(formatted_amount, 

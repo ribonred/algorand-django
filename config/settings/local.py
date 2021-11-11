@@ -23,5 +23,5 @@ DATABASES = {
         'PORT': 5432,
     },
 }
-NODE="http://localhost:4001"
-ALGO_TOKEN="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+NODE="https://testnet-algorand.api.purestake.io/ps2"
+ALGO_TOKEN="J9ERQ8tsgritjH5WP9kT1rgLOx4z9DdmOJQlxij0"

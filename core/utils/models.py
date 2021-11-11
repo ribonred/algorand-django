@@ -26,7 +26,10 @@ class BaseTimeStampModel(models.Model):
 
     @property
     def algod_client(self):
-        client= algod.AlgodClient(settings.ALGO_TOKEN, settings.NODE)
+        headers = {
+            "X-API-Key": settings.ALGO_TOKEN,
+            }
+        client= algod.AlgodClient(settings.ALGO_TOKEN, settings.NODE,headers)
         return client
     
     def wait_for_confirmation(self, transaction_id, timeout):

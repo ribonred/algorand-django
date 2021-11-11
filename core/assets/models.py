@@ -5,6 +5,10 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from core.utils.validator import AssetInventory
 from core.user.manager import AssetManager
 
+
+
+
+
 class Asset(BaseTimeStampModel):
     asset_id = UlidField(primary_key=True,prefix="cnx_",editable=False)
     creator = models.CharField(max_length=address_len, blank=False)

@@ -62,8 +62,11 @@ class AppUserManager(BaseUserManager):
 
 
 class AlgorandManager(models.Manager):
+    headers = {
+            "X-API-Key": settings.ALGO_TOKEN,
+            }
     
-    algod_client = algod.AlgodClient(settings.ALGO_TOKEN, settings.NODE)
+    algod_client = algod.AlgodClient(settings.ALGO_TOKEN, settings.NODE,headers)
 
     def wait_for_confirmation(self, transaction_id, timeout):
         start_round = self.algod_client.status()["last-round"] + 1
@@ -132,7 +135,7 @@ class AccountManager(AlgorandManager):
 
         params = self.algod_client.suggested_params()
         asset_account =super().get(address=client_address)
-        txn = AssetTransferTxn(client_address, params, receiver=client_address, amt=0, index=2)
+        txn = AssetTransferTxn(client_address, params, receiver=client_address, amt=0, index=44253981)
         passphrase = asset_account.passphrase
         txinfo = self.sign_and_send(txn,passphrase)
 
@@ -143,7 +146,7 @@ class AccountManager(AlgorandManager):
             wallet =self.model(user=user_id,address=public_address,private_key=private_key,name=name)
             if not main:
                 params = self.algod_client.suggested_params()
-                txn = AssetTransferTxn(public_address, params, receiver=public_address, amt=0, index=2)
+                txn = AssetTransferTxn(public_address, params, receiver=public_address, amt=0, index=44253981)
                 passphrase = wallet.passphrase
                 if passphrase:
                     txinfo = self.sign_and_send(txn,passphrase)

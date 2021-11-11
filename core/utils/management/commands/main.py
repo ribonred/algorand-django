@@ -11,16 +11,21 @@ class Command(BaseCommand):
     #     parser.add_argument('poll_ids', nargs='+', type=int)
 
     def handle(self, *args, **options):
-        user = User.objects.get(username='hanabi')
-        user_b = User.objects.get(username='ribonred')
-        # account = Account.objects.create_wallet(user_id=user,name='regular')
+        # Asset.objects.all().delete()
+        # Account.objects.all().delete()
+        # user = User.objects.get(username='hanabi')
+        user = User.objects.get(username='ribonred')
+        # account = Account.objects.create_wallet(user_id=user,name='main',main=True)
         # account = Account.objects.create_wallet(user_id=user,name='regular')
         wallet = Account.objects.get(user=user)
         # Account.objects.opt_in(wallet.address)
-        # bank = Account.objects.get(user=user_b)
+        # bank = Account.objects.get(user=user)
         # bank.transfer(5000,wallet.address)
-        # print(account.balance())
-        print(wallet.balance())
+        # print(wallet.address)
+
+        print(wallet.check_holdings())
+        # print(wallet.passphrase)
+        # print(wallet.balance())
 
         # props=AssetInventory(
         #     creator=wallet.address,
@@ -43,12 +48,13 @@ class Command(BaseCommand):
         # )
         # print(wallet.address)
         # ass = Asset.objects.get(asset_name='OZORA')
+        # print(ass.serialized_properties)
         # ass.total=1000
         # ass.save()
         # coin = Asset.objects.all().delete()
         # print(coin)
         # 10_000_000
-        # coins = Asset.objects.create_coin(passphrase=wallet.private_key,asset_name='OZORA')
+        # coins = Asset.objects.create_coin(passphrase=wallet.passphrase,asset_name='OZORA')
         # print(coin.count(),coin)
 
         
