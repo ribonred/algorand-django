@@ -24,7 +24,7 @@ class Command(BaseCommand):
         # print(wallet.address)
 
         print(wallet.check_holdings())
-        # print(wallet.passphrase)
+        print(wallet.passphrase)
         # print(wallet.balance())
 
         # props=AssetInventory(
@@ -56,5 +56,10 @@ class Command(BaseCommand):
         # 10_000_000
         # coins = Asset.objects.create_coin(passphrase=wallet.passphrase,asset_name='OZORA')
         # print(coin.count(),coin)
+
+
+
+
+        # crime clinic mercy scheme equip vocal theory material badge outside industry permit problem enjoy rare army help dial quiz spoil cram lab attend absorb kind
 
         
